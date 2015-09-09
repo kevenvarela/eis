@@ -1,3 +1,0 @@
-class CharCounter
-
-end
