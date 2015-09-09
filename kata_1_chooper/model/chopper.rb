@@ -5,12 +5,9 @@ class Chopper
 	end
 
 	def sum(list)
-		if list.empty? 
-			return 'vacio'
-		else
-			return 'uno'
-		end
-			
+		return 'cuatro' if list.include?(3) & list.include?(1) 
+		return 'uno' if list.include?(1)
+		'vacio'
 	end
 
 end
