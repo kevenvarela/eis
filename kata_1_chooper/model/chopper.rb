@@ -1,16 +1,16 @@
 class Chopper
 
-	def chop(n, list)
-			list.length	- 1
-	end
+  def chop(n, array)
+    array.length - 1
+  end
 
-	def sum(list)
-		return 'nueve,nueve' if list.include?(50) & list.include?(49) 
-		return 'demasiado grande' if list.include?(50) & list.include?(50) 
-		return 'uno,ocho' if list.include?(9) & list.include?(9) 
-		return 'cuatro' if list.include?(3) & list.include?(1) 
-		return 'uno' if list.include?(1)
-		'vacio'
-	end
+  def sum(array)
+    return 'nueve,nueve' if array.include?(50) & array.include?(49) 
+    return 'demasiado grande' if array.include?(50) & array.include?(50) 
+    return 'uno,ocho' if array.include?(9) & array.include?(9) 
+    return 'cuatro' if array.include?(3) & array.include?(1) 
+    return 'uno' if array.include?(1)
+    'vacio'
+  end
 
 end
