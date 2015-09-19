@@ -4,9 +4,21 @@
 #
 # Una vez completa la tarea, generar un TAG en el repositorio y subir a alfred el link a dicho TAG
 # Fecha de entrega 13 de Septiembre
-
+# es paso lo que restaría de la kata 1. Explicación textual:
+# 
+# El chop devuelve la posición del elemento en el array
+# El sum, devuelve el texto de los dígitos de la sumatoria de los números contenidos en el array siempre que los esa sumatoria no exceda los dos dígitos. 
+# 
+# En ambos casos se asume que el array no contendrá número negativos.
+ 
 require 'rspec' 
 require_relative '../model/chopper'
+require_relative '../model/armador_de_numeros'
+require_relative '../model/tipo_de_numero'
+require_relative '../model/vacio'
+require_relative '../model/demasiado_grande'
+require_relative '../model/una_cifra'
+require_relative '../model/dos_cifras'
 
 describe 'Chopper' do
 
@@ -46,6 +58,18 @@ describe 'Chopper' do
 
   it 'sum de [50,49] deberia ser nueve,nueve' do
     expect(chopper.sum([50,49])).to eq 'nueve,nueve'
+  end
+
+  it 'sum de [0,0] deberia ser cero' do
+    expect(chopper.sum([0,0])).to eq 'cero'
+  end
+
+  it 'sum de [15] deberia ser uno,cinco' do
+    expect(chopper.sum([15])).to eq 'uno,cinco'
+  end
+
+  it 'sum de [20,1,1,1] deberia ser dos,tres' do
+    expect(chopper.sum([20,1,1,1])).to eq 'dos,tres'
   end
 
 end
