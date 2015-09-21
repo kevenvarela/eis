@@ -1,4 +1,6 @@
 language: ruby
+sudo: required
 rvm:
   - 2.2.0
 script: "./build_all.sh"
+
