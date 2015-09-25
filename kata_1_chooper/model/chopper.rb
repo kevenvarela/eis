@@ -1,7 +1,8 @@
 class Chopper
 
   def initialize
-    @armador_de_numeros = ArmadorDeNumeros.new(self)
+    @hash = { 0 => "cero" , 1 => "uno" , 2 => "dos", 3 => "tres", 4 => "cuatro", 
+      5 => "cinco", 6 => "seis", 7 => "siete", 8 => "ocho", 9 => "nueve"}
   end
 
   def chop(n, array)
@@ -11,7 +12,22 @@ class Chopper
 
   def sum(array)
     n = array.inject :+
-    @armador_de_numeros.armar(n)
+    return 'vacio' if n == nil
+    return 'demasiado grande' if n > 99
+    armar(n)
+  end
+
+  def armar(n)
+    return @hash[unidad(n)] if(descena(n) == 0)
+    @hash[descena(n)]+','+@hash[unidad(n)]
+  end
+
+  def unidad(n)
+    n % 10
+  end
+  
+  def descena(n)
+    n / 10
   end
 
 end

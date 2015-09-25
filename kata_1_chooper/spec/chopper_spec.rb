@@ -13,12 +13,6 @@
  
 require 'rspec' 
 require_relative '../model/chopper'
-require_relative '../model/armador_de_numeros'
-require_relative '../model/tipo_de_numero'
-require_relative '../model/vacio'
-require_relative '../model/demasiado_grande'
-require_relative '../model/una_cifra'
-require_relative '../model/dos_cifras'
 
 describe 'Chopper' do
 
