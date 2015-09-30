@@ -15,11 +15,12 @@ describe 'Element' do
   it 'Piedra name returns Piedra' do
   	expect(piedra.name).to eq "Piedra"
   end
-=begin
+
   it 'Piedra vs Piedra returns nil' do
     expect(piedra.vs piedra).to eq nil
   end
 
+=begin
   it 'Piedra vs Papel returns false' do
     expect(piedra.vs papel).to eq false
   end

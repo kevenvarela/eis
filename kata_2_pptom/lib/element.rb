@@ -1,6 +1,6 @@
 class Element
 	
-  def vs element
+  def vs(element)
   	@hash[element.name]
   end
 

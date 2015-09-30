@@ -1,7 +1,7 @@
 class Mono < Element
-  @hash = ["Mono" => nil, "Piedra" => nil, "Papel" => true, "Tijera" => false]
 
   def initialize
+    @hash = ["Mono" => nil, "Piedra" => nil, "Papel" => true, "Tijera" => false]
     @name = "Mono"
   end
 end
