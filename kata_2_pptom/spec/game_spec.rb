@@ -46,6 +46,7 @@ describe 'Game' do
   let(:player2) { Player.new }  
 
   describe "dynamic of a round" do
+
     it 'when player1 plays Piedra and player2 plays Papel, 
      the winner must be player2' do
   	  player1.play(Piedra.new)
