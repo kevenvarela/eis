@@ -12,25 +12,49 @@ describe 'Element' do
   let(:tijera) { Tijera.new }  
   let(:mono)   { Mono.new }  
 
-  it 'Piedra name returns Piedra' do
-  	expect(piedra.name).to eq "Piedra"
+  describe 'Piedra' do
+
+    it 'name returns Piedra' do
+      	expect(piedra.name).to eq "Piedra"
+    end
+  
+    it 'vs Piedra returns nil' do
+        expect(piedra.vs piedra).to eq nil
+    end
+  
+    it 'vs Papel returns false' do
+        expect(piedra.vs papel).to eq false
+    end
+  
+    it 'vs Tijera returns true' do
+        expect(piedra.vs tijera).to eq true
+    end
+  
+    it 'vs Mono returns nil' do
+      expect(piedra.vs mono).to eq nil
+    end
   end
 
-  it 'Piedra vs Piedra returns nil' do
-    expect(piedra.vs piedra).to eq nil
-  end
+  describe 'Papel' do
 
-  it 'Piedra vs Papel returns false' do
-    expect(piedra.vs papel).to eq false
+    it 'name returns Papel' do
+      	expect(papel.name).to eq "Papel"
+    end
+  
+    it 'vs Piedra returns true' do
+        expect(papel.vs piedra).to eq true
+    end
+  
+    it 'vs Papel returns nil' do
+        expect(papel.vs papel).to eq nil
+    end
+  
+    it 'vs Tijera returns false' do
+        expect(papel.vs tijera).to eq false
+    end
+  
+    it 'vs Mono returns false' do
+      expect(papel.vs mono).to eq false
+    end
   end
-
-  it 'Piedra vs Tijera returns true' do
-    expect(piedra.vs tijera).to eq true
-  end
-
-  it 'Piedra vs Mono returns nil' do
-    expect(piedra.vs mono).to eq nil
-  end
-=begin
-=end
 end
