@@ -45,11 +45,12 @@ describe 'Game' do
   let(:player1) { Player.new }  
   let(:player2) { Player.new }  
 
-  describe "RONDAAAAAA" do
-    it 'WTF' do
+  describe "dynamic of a round" do
+    it 'when player1 plays Piedra and player2 plays Papel, 
+     the winner must be player2' do
   	  player1.play(Piedra.new)
   	  player2.play(Papel.new)
-      expect(game.winner(player1, player2)).to eq player2
+      game.winner(player1, player2).should eq player2
     end
    end
 
