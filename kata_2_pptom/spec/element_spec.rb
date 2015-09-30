@@ -20,7 +20,6 @@ describe 'Element' do
     expect(piedra.vs piedra).to eq nil
   end
 
-=begin
   it 'Piedra vs Papel returns false' do
     expect(piedra.vs papel).to eq false
   end
@@ -32,5 +31,6 @@ describe 'Element' do
   it 'Piedra vs Mono returns nil' do
     expect(piedra.vs mono).to eq nil
   end
+=begin
 =end
 end
