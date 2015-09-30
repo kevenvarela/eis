@@ -1,4 +1,5 @@
 require 'rspec' 
+require_relative '../lib/element'
 require_relative '../lib/player'
 require_relative '../lib/piedra'
 
@@ -16,3 +17,4 @@ describe 'Player' do
   end
 
 end
+
