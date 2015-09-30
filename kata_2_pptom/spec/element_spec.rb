@@ -57,4 +57,27 @@ describe 'Element' do
       expect(papel.vs mono).to eq false
     end
   end
+
+  describe 'Tijera' do
+
+    it 'name returns Tijera' do
+        expect(tijera.name).to eq "Tijera"
+    end
+  
+    it 'vs Piedra returns false' do
+        expect(tijera.vs piedra).to eq false
+    end
+  
+    it 'vs Papel returns true' do
+        expect(tijera.vs papel).to eq true
+    end
+  
+    it 'vs Tijera returns nil' do
+        expect(tijera.vs tijera).to eq nil
+    end
+  
+    it 'vs Mono returns true' do
+      expect(tijera.vs mono).to eq true
+    end
+  end
 end
