@@ -36,8 +36,11 @@ entonces la partida la gana jugador2
 require 'rspec' 
 require_relative '../lib/game'
 require_relative '../lib/player'
+require_relative '../lib/element'
 require_relative '../lib/piedra'
 require_relative '../lib/papel'
+require_relative '../lib/tijera'
+require_relative '../lib/mono'
 
 describe 'Game' do
 
@@ -51,8 +54,16 @@ describe 'Game' do
      the winner must be player2' do
   	  player1.play(Piedra.new)
   	  player2.play(Papel.new)
-      game.winner(player1, player2).should eq player2
+      expect(game.winner?(player1, player2)).to eq player2
     end
+=begin
+    it 'when player1 plays Tijera and player2 plays Mono, 
+     the winner must be player1' do
+  	  player1.play(Tijera.new)
+  	  player2.play(Mono.new)
+      expect(game.winner?(player1, player2)).to eq player1
+    end
+=end
    end
 
 end
