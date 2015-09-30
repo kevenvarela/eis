@@ -3,6 +3,7 @@ class Game
 
   def winner?(p1, p2)
     return p1 if p1.element.vs p2.element
-    p2
+    return p2 if p2.element.vs p1.element
+    nil
   end	
 end

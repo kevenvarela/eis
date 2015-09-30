@@ -56,14 +56,27 @@ describe 'Game' do
   	  player2.play(Papel.new)
       expect(game.winner?(player1, player2)).to eq player2
     end
-=begin
+
     it 'when player1 plays Tijera and player2 plays Mono, 
      the winner must be player1' do
   	  player1.play(Tijera.new)
   	  player2.play(Mono.new)
       expect(game.winner?(player1, player2)).to eq player1
     end
-=end
-   end
 
+    it 'when player1 plays Mono and player2 plays Papel, 
+     the winner must be player1' do
+  	  player1.play(Mono.new)
+  	  player2.play(Papel.new)
+      expect(game.winner?(player1, player2)).to eq player1
+    end
+
+    it 'when player1 plays Tijera and player2 plays Tijera, 
+     there is no winner' do
+  	  player1.play(Tijera.new)
+  	  player2.play(Tijera.new)
+      expect(game.winner?(player1, player2)).to eq nil
+    end
+
+   end
 end
