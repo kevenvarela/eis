@@ -1,10 +1,7 @@
 class Player
-  
+  attr_accessor :element
+
   def play element
     @element = element
-  end
-
-  def element
-  	@element
   end
 end

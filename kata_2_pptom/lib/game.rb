@@ -5,7 +5,7 @@ class Game
   end
 
   def winner?(p1, p2)
-    if p1.element.vs p2.element
+    if p1.element.vs p2.element #There is a better way to do this??
       @scores['p1'] += 1
       return p1 
     end
@@ -13,11 +13,10 @@ class Game
       @scores['p2'] += 1
       return p2
     end
-    nil
   end	
 
   def winner_of_set?(p1, p2)
-  	hash = {'p1' => p1, 'p2' => p2, nil => nil}
+  	hash = {'p1' => p1, 'p2' => p2}
     hash[@scores.key 2] 
   end
 

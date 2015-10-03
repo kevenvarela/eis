@@ -1,10 +1,7 @@
 class Element
-	
+  attr_reader :name
+
   def vs(element)
   	@hash[element.name]
-  end
-
-  def name
-  	@name
   end
 end
