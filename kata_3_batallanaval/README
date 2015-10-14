@@ -1,0 +1,28 @@
+Este ejercicio consiste en implementar una PARTE SIMPLIFCADA del juego de batalla naval. En concreto trabajaremos sobre 2 user stories:
+
+* Como usuario quiero ubicar mis barcos
+Escenario 1: Ubico mi barco exitosamente
+Escenario 2: No se puede ubicar un barco en una posición ya ocupada
+Escenario 3: No puedo ubicar mi barco en una posición fuera del tablero
+
+
+* Como usuario quiero disparar a los barcos enemigos
+Escenario 1: Disparo y toco agua
+Escenario 2: Disparo y toco un barco pero no lo hundo
+Escenario 3: Disparo y toco un barco y lo hundo
+
+La idea es debatir por la lista para generar entre todos los steps que conforman cada escenario.
+Tengan presente que desde el punto de diseño de la aplicación cucumber (los step definitions)deberían interactuar con UNA única clase (Batalla Naval) que funcionaría como wrapper/fachada de toda la solución. Dicha clase internamente trabajaría con otras clases para implementar el juego. Esas clases "internas" las deben construir haciendo TDD, de manera que cada una tenga sus pruebas unitarias.
+
+Solución base: https://app.box.com/s/nxtg6g6kw9e2e2rmbfx2jdx49fguykp0
+Video explicativo: http://www.youtube.com/watch?v=Uo0pZNhg99Y
+
+Decisiones tomadas:
+
+cinco casillas consecutivas conforman un Submarine;
+tres un vessel;
+una casilla aislada una boat.
+
+Cuando se lo posiciona horizontalmente el bote se posiciona desde la casilla inicial hacia abajo tantas casillas sea la coordenada x.
+
+Cuando se lo posiciona verticalmente el bote se posiciona desde la casilla inicial hacia la derecha tantas casillas sea la coordenada y.
