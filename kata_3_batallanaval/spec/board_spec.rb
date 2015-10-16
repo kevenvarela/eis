@@ -3,7 +3,7 @@ require "board.rb"
 
 describe 'Board' do
 
-  let(:board) { Board.new }
+  let(:board) { Board.new(10,10) }
 
   describe '::initialize' do
     
@@ -13,8 +13,15 @@ describe 'Board' do
   end
 
   describe '#width?' do
+
     context 'must be eq to 10' do
       it { expect(board.width?).to be 10 }
     end
+    
+    context 'must be eq to 5' do
+      let(:board) { Board.new(5,5) }
+      it { expect(board.width?).to be 5 }
+    end
+
   end
 end

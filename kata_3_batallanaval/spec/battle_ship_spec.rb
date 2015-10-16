@@ -4,15 +4,12 @@ require "board.rb"
 
 describe 'BattleShip' do
 
-  let(:battle_ship) { BattleShip.new }
+  let(:battle_ship) { BattleShip.new(10, 10) }
 
   describe '::initialize' do
-    
-    context 'initializes a BattleShip' do
-      it { expect(battle_ship.class).to be BattleShip.itself }
-    end
 
-    context 'initializes a Board' do
+    context 'initializes a BattleShip & Board' do
+      it { expect(battle_ship.class).to be BattleShip.itself }
       it { expect(battle_ship.board.class).to be Board.itself }
     end
   end

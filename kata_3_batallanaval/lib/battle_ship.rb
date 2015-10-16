@@ -1,8 +1,8 @@
 class BattleShip
   attr_reader :board
 
-  def initialize
-    @board = Board.new
+  def initialize(x,y)
+    @board = Board.new(x,y)
   end
 
   def board_width?
