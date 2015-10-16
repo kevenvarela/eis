@@ -4,4 +4,8 @@ class BattleShip
   def initialize
     @board = Board.new
   end
+
+  def board_width?
+  	@board.width?
+  end
 end

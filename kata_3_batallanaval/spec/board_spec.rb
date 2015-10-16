@@ -8,7 +8,13 @@ describe 'Board' do
   describe '::initialize' do
     
     context 'initializes a Board' do
-      it { expect(board.class).to eq Board.itself }
+      it { expect(board.class).to be Board.itself }
+    end
+  end
+
+  describe '#width?' do
+    context 'must be eq to 10' do
+      it { expect(board.width?).to be 10 }
     end
   end
 end
