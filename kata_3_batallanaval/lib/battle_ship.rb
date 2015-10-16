@@ -1,4 +1,7 @@
 class BattleShip
-	def initialize
-	end
+  attr_reader :board
+
+  def initialize
+    @board = Board.new
+  end
 end
