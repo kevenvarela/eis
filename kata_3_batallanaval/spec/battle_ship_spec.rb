@@ -19,4 +19,10 @@ describe 'BattleShip' do
       it { expect(battle_ship.board_width?).to be 10 }
     end
   end
+
+  describe '#board_high?' do
+    context 'must be eq to 10' do
+      it { expect(battle_ship.board_high?).to be 10 }
+    end
+  end
 end

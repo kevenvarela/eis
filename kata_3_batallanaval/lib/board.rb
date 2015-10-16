@@ -9,4 +9,8 @@ class Board
   def width?
     x
   end
+
+  def high?
+    y
+  end
 end

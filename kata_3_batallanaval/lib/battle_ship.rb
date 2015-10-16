@@ -8,4 +8,8 @@ class BattleShip
   def board_width?
   	@board.width?
   end
+
+  def board_high?
+  	@board.high?
+  end
 end
