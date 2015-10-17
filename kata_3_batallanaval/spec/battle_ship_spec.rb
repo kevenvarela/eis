@@ -6,6 +6,7 @@ require "boat.rb"
 describe 'BattleShip' do
 
   let(:battle_ship) { BattleShip.new(10, 10) }
+  let(:submarine) { Boat.new("Submarine", "vertically", [1,1])}
 
   describe '::initialize' do
 
@@ -29,7 +30,15 @@ describe 'BattleShip' do
 
   describe '#new_boat' do
     context 'initializes a Boat & returns it' do
-      it { expect(battle_ship.new_boat("Submarine", "vertically", [1,1])).to be_equal Boat.new("Submarine", "vertically", [1,1])}
+      let(:submarine1) { battle_ship.new_boat("Submarine", "vertically", [1,1]) } 
+      it { expect(submarine1).to be_equal submarine }
     end
   end
+
+  describe '#place' do
+    context 'palces a Boat' do
+      it {expect(battle_ship.place("Submarine", "vertically", [1,1])).to be_equal true}
+    end
+  end
+
 end

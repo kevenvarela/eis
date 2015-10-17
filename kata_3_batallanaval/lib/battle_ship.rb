@@ -16,4 +16,8 @@ class BattleShip
   def new_boat(type, orientation, position)
   	Boat.new(type, orientation, position)
   end
+
+  def place(type, orientation, position)
+  	true
+  end
 end
