@@ -7,6 +7,9 @@ require_relative "../exceptions/out_of_board_exception.rb"
 describe 'Board' do
 
   let(:board) { Board.new(10,10) }
+  let (:destroyer) {Boat.new("Destroyer", "vertically", [9,1])}
+  let (:cruise) {Boat.new("Cruise", "vertically", [1,1])}
+  let (:submarine) {Boat.new("Submarine", "vertically", [1,1])}
 
   describe '::initialize' do
     
@@ -41,10 +44,6 @@ describe 'Board' do
 
   describe '#place' do
 
-  	let (:destroyer) {Boat.new("Destroyer", "vertically", [9,1])}
-  	let (:cruise) {Boat.new("Cruise", "vertically", [1,1])}
-  	let (:submarine) {Boat.new("Submarine", "vertically", [1,1])}
-
     context 'palces a submarine Boat' do
       it { expect(board.place(submarine)).to be_equal true }
     end
@@ -73,6 +72,16 @@ describe 'Board' do
           to raise_error(OutOfBoardException, 'Out of board!')
       end
     end
+  end
+  
+  describe '#ship_in?' do
+    it 'for a submarine that is place in board' do
+      board.place(submarine)
+      expect(board.ship_in?([1,1])).to be submarine
+    end
 
+    it 'for a submarine that is not place in board' do
+      expect(board.ship_in?([1,1])).to be false
+    end
   end
 end
