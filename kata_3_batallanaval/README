@@ -19,9 +19,9 @@ Video explicativo: http://www.youtube.com/watch?v=Uo0pZNhg99Y
 
 Decisiones tomadas:
 
-cinco casillas consecutivas conforman un Submarine;
-tres un vessel;
-una casilla aislada una boat.
+tres un destroyer,
+dos un cruise, y
+una un submarino.
 
 Cuando se lo posiciona horizontalmente el bote se posiciona desde la casilla inicial hacia abajo tantas casillas sea la coordenada x.
 
