@@ -49,8 +49,8 @@ describe 'BattleShip' do
     context 'raise "The place is busy!"' do
       it 'when somebody occuped that place before' do
         battle_ship.place(submarine)
-        expect{battle_ship.place(submarine)}.
-          to raise_error(BussyPlaceException, 'The place is busy!')
+        expect{ battle_ship.place(submarine) }.
+          to raise_error(BussyPlaceException, 'The place is bussy!')
       end
     end
 

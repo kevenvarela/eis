@@ -23,7 +23,7 @@ class Board
   end
 
   def verify(boat_positions) 
-    raise BussyPlaceException.new('The place is busy!')  if place_busy? boat_positions
+    raise BussyPlaceException.new('The place is bussy!')  if place_busy? boat_positions
     raise OutOfBoardException.new('Out of board!')  if out_of_board? boat_positions
   end
 
@@ -43,8 +43,8 @@ class Board
   	boat_positions.each{ |key| @positions[key] = boat }
   end
 
-  def ship_in?(position)
-    return @positions.values_at(position)[0] if @positions.has_key? position
+  def ship_in?(boat_position)
+    return @positions.values_at(boat_position)[0] if @positions.has_key? boat_position
     false
   end
 

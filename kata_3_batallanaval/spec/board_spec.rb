@@ -60,7 +60,7 @@ describe 'Board' do
       it 'when somebody occuped that place before' do
         board.place(submarine)
         expect{board.place(cruise)}.
-          to raise_error(BussyPlaceException, 'The place is busy!')
+          to raise_error(BussyPlaceException, 'The place is bussy!')
       end
     end
 
