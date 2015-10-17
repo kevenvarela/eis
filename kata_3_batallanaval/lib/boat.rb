@@ -7,32 +7,28 @@ class Boat
   	@position = position
   	@types = {"Destroyer": 3, "Cruise": 2, "Submarine": 1}
   end
-=begin
+
   def positions?
-    return position if type == "Submarine"
-  	
-    res = [position]
-  	
+    return [position] if type == "Submarine"
+    
+    res = []
+    
+    
     if orientation == "horizontally"
-      end_x = position[0] + types[type.to_sym]
+      end_x = position[0] + types[type.to_sym] -1
 
-  	  puts "------------------"
-  	  puts position[0]
-  	  puts "------------------"
-  	  puts types[type.to_sym]
-  	  puts "------------------"
-  	  puts end_x
-  	  puts "------------------"
-
-  	  position[0].upto end_x.to_i {|x| res+[position[x],position[1]]}
-  	else
-  	  end_y = position[1]+ types[type.to_sym]
-  	  position[1].upto end_y.to_i {|y| res+[position[1],position[y]]}
+      for x in  position[0]..end_x
+        res<<[x,position[1]]
+      end
+      return res
     end
-  end 
-=end
-  def positions?
-    [position] if type == "Submarine"
+
+    end_y = position[1] + types[type.to_sym] -1
+    for y in  position[1]..end_y
+        res<<[position[0],y]
+    end
+    res
+
   end
 
   def equal?(boat)
