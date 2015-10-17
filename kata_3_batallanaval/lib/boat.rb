@@ -2,33 +2,36 @@ class Boat
   attr_reader :type, :orientation, :position, :types
 
   def initialize(type, orientation, position)
-  	@type = type
-  	@orientation = orientation
-  	@position = position
   	@types = {"Destroyer": 3, "Cruise": 2, "Submarine": 1}
+    @type = type
+    @orientation = orientation
+    @position = position
   end
 
   def positions?
-    return [position] if type == "Submarine"
-    
+    return [position]            if type == "Submarine"
+    return horizontally_position if orientation == "horizontally"
+    vertically_position
+  end
+
+  def horizontally_position
     res = []
-    
-    
-    if orientation == "horizontally"
-      end_x = position[0] + types[type.to_sym] -1
-
-      for x in  position[0]..end_x
-        res<<[x,position[1]]
-      end
-      return res
+    for x in position[0]..end_coord(0) 
+      res << [x, position[1]]
     end
+    return res
+  end
 
-    end_y = position[1] + types[type.to_sym] -1
-    for y in  position[1]..end_y
-        res<<[position[0],y]
+  def vertically_position
+    res = []
+    for y in position[1]..end_coord(1)
+      res << [position[0], y]
     end
-    res
+    return res
+  end
 
+  def end_coord(place)
+    position[place] + types[type.to_sym] -1
   end
 
   def equal?(boat)
