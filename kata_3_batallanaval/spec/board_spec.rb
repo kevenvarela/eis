@@ -1,6 +1,8 @@
 require 'rspec'
 require "board.rb"
 require "boat.rb"
+require_relative "../exceptions/bussy_place_exception.rb"
+require_relative "../exceptions/out_of_board_exception.rb"
 
 describe 'Board' do
 
@@ -39,7 +41,7 @@ describe 'Board' do
 
   describe '#place' do
 
-  	let (:destroyer) {Boat.new("Destroyer", "horizontally", [9,1])}
+  	let (:destroyer) {Boat.new("Destroyer", "vertically", [9,1])}
   	let (:cruise) {Boat.new("Cruise", "vertically", [1,1])}
   	let (:submarine) {Boat.new("Submarine", "vertically", [1,1])}
 
@@ -54,19 +56,23 @@ describe 'Board' do
     context 'palces a cruise Boat' do
       it { expect(board.place(cruise)).to be_equal true }
     end
-=begin
+
     context 'raise "The place is busy!"' do
       it 'when somebody occuped that place before' do
-        battle_ship.place(submarine)
-        expect(battle_ship.place(cruise)).
-          to raise_error(Errors::BusyPlaceException)
+        board.place(submarine)
+        expect{board.place(cruise)}.
+          to raise_error(BussyPlaceException, 'The place is busy!')
       end
     end
 
     context 'raise "Out of board!"' do
-      it { expect(battle_ship.place(destroyer)).
-        to raise_error(Errors::OutOfBoardException)}
+      let (:destroyer) {Boat.new("Destroyer", "horizontally", [9,1])}
+
+      it 'when somebody steps out of board' do
+        expect{board.place(destroyer)}.
+          to raise_error(OutOfBoardException, 'Out of board!')
+      end
     end
-=end
+
   end
 end

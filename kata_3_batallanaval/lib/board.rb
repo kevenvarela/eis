@@ -17,22 +17,30 @@ class Board
 
   def place(boat)
   	boat_positions = boat.positions
-    #verify(positions)
+    verify(boat_positions)
     save(boat_positions, boat)
     true # seems like forcing the method to return true
   end
-=begin
-  def verify(positions)
-  	raise BusyPlaceException.new("Bussy position!") if place_busy(positions)
+
+  def verify(boat_positions) 
+    raise BussyPlaceException.new('The place is busy!')  if place_busy boat_positions
+    raise OutOfBoardException.new('Out of board!')  if out_of_board boat_positions
   end
 
-  def place_busy(positions)
-  	@positions.each_key{ |key| positions.include? key }
+  def place_busy(boat_positions)
+  	boat_positions.any?{ |key| @positions.has_key?(key) }
   end
-=end
+
+  def out_of_board(boat_positions)
+    boat_positions.any?{ |coord| step_out_of_board?(coord) }
+  end
+
+  def step_out_of_board?(coord)
+    coord[0] > x || coord[1] > y
+  end
+
   def save(boat_positions, boat)
   	boat_positions.each{ |key| @positions[key] = boat }
-    puts @positions
   end
 
 end

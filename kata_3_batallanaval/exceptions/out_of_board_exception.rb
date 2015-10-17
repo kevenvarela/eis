@@ -1,0 +1,3 @@
+class OutOfBoardException < Exception
+	
+end
