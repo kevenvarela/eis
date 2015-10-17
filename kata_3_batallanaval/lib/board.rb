@@ -23,8 +23,8 @@ class Board
   end
 
   def verify(boat_positions) 
-    raise BussyPlaceException.new('The place is bussy!')  if place_busy? boat_positions
-    raise OutOfBoardException.new('Out of board!')  if out_of_board? boat_positions
+    raise OutOfBoardException.new('Out of board!')       if out_of_board? boat_positions
+    raise BussyPlaceException.new('The place is bussy!') if place_busy? boat_positions
   end
 
   def place_busy?(boat_positions)

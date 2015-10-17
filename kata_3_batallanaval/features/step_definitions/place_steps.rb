@@ -2,6 +2,7 @@ require_relative "../../lib/battle_ship.rb"
 require_relative "../../lib/board.rb"
 require_relative "../../lib/boat.rb"
 require_relative "../../exceptions/bussy_place_exception.rb"
+require_relative "../../exceptions/out_of_board_exception.rb"
 
 #   Scenario: place my ship successfully
 
@@ -23,7 +24,7 @@ Then(/^my Submarine is in (\d+),(\d+)$/) do |arg1, arg2|
   expect(@battle_ship.ship_in?(@position)).to be @submarine 
 end
 
-#    Scenario: cant place my ship
+#    Scenario: cant place my ship => BussyPlaceException
 
 Given(/^(\d+),(\d+) occuped position and a Cruise horizontally$/) do |arg1, arg2|
   @position = [1,1]
@@ -42,4 +43,24 @@ end
 
 Then(/^the place is bussy$/) do
   expect(@exception.message).to eq 'The place is bussy!'
+end
+
+
+#   Scenario: cant place my ship => OutOfBoardException
+
+Given(/^(\d+),(\d+) free possition and a Destroyer horizontally$/) do |arg1, arg2|
+  @position = [10,10]
+  @destroyer = @battle_ship.new_boat('Destroyer', 'horizontally', @position)
+end
+
+When(/^place my Destroyer in (\d+),(\d+)$/) do |arg1, arg2|
+  begin
+    @battle_ship.place(@destroyer)  #  => Out of board! (OutOfBoardException)
+  rescue Exception => e
+    @exception = e
+  end
+end
+
+Then(/^step over the board$/) do
+  expect(@exception.message).to eq 'Out of board!'
 end

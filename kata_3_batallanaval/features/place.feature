@@ -15,7 +15,6 @@ Feature: Placing
     When place my Cruise in 1,1 
     Then the place is bussy
 
-  @wip
   Scenario: cant place my ship
    Given 10,10 free possition and a Destroyer horizontally
    When place my Destroyer in 10,10 
