@@ -1,6 +1,7 @@
 require 'rspec'
 require "battle_ship.rb"
 require "board.rb"
+require "boat.rb"
 
 describe 'BattleShip' do
 
@@ -23,6 +24,12 @@ describe 'BattleShip' do
   describe '#board_high?' do
     context 'must be eq to 10' do
       it { expect(battle_ship.board_high?).to be 10 }
+    end
+  end
+
+  describe '#new_boat' do
+    context 'initializes a Boat & returns it' do
+      it { expect(battle_ship.new_boat("Submarine", "vertically", [1,1])).to be_equal Boat.new("Submarine", "vertically", [1,1])}
     end
   end
 end

@@ -12,4 +12,8 @@ class BattleShip
   def board_high?
   	@board.high?
   end
+
+  def new_boat(type, orientation, position)
+  	Boat.new(type, orientation, position)
+  end
 end
