@@ -8,7 +8,6 @@ require_relative "../../exceptions/out_of_board_exception.rb"
 
 Given(/^an empty Board of (\d+),(\d+)$/) do |arg1, arg2|
   @battle_ship = BattleShip.new(10,10)
-  @board = @battle_ship.board
 end
 
 Given(/^(\d+),(\d+) free position and a Submarine vertically$/) do |arg1, arg2|
