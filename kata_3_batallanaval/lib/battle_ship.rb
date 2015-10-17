@@ -20,4 +20,8 @@ class BattleShip
   def place(boat)
   	@board.place(boat)
   end
+
+  def ship_in?(position)
+    @board.ship_in?(position)
+  end
 end

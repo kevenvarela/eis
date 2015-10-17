@@ -59,6 +59,12 @@ describe 'BattleShip' do
       it { expect {battle_ship.place(destroyer)}.
         to raise_error(OutOfBoardException, 'Out of board!')}
     end
+  end
 
+  describe '#ships_in?' do
+    it 'must return the submarine in that position' do
+      battle_ship.place(submarine)
+      expect(battle_ship.ship_in?([1,1])).to be submarine
+    end
   end
 end
