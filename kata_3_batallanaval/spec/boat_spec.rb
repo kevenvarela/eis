@@ -20,14 +20,14 @@ describe 'Boat' do
     end
   end
 
-  describe '#positions?' do 
-    it { expect(submarine_v.positions?).to eq [[1,4]] }
-    it { expect(destroyer_v.positions?).to eq [[2,5],[2,6],[2,7]]}
-    it { expect(cruise_v.positions?).to eq [[3,6],[3,7]] }
+  describe '#positions' do 
+    it { expect(submarine_v.positions).to eq [[1,4]] }
+    it { expect(destroyer_v.positions).to eq [[2,5],[2,6],[2,7]]}
+    it { expect(cruise_v.positions).to eq [[3,6],[3,7]] }
 
-    it { expect(submarine_h.positions?).to eq [[4,1]] }
-    it { expect(destroyer_h.positions?).to eq [[5,2],[6,2],[7,2]] }
-    it { expect(cruise_h.positions?).to eq [[6,3],[7,3]] }
+    it { expect(submarine_h.positions).to eq [[4,1]] }
+    it { expect(destroyer_h.positions).to eq [[5,2],[6,2],[7,2]] }
+    it { expect(cruise_h.positions).to eq [[6,3],[7,3]] }
   end
 
 end

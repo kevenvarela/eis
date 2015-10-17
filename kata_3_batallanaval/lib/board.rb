@@ -2,6 +2,7 @@ class Board
   attr_reader :x, :y
 
   def initialize(x,y)
+  	@positions = {}
   	@x = x
   	@y = y
   end
@@ -13,26 +14,25 @@ class Board
   def high?
     y
   end
-end
 
+  def place(boat)
+  	boat_positions = boat.positions
+    #verify(positions)
+    save(boat_positions, boat)
+    true # seems like forcing the method to return true
+  end
 =begin
-	
-	positions:{ 
-			{1,1: BarcoA}
-			{1,2: BarcoB}
-			{1,3: BarcoB}
-	}	
- or
-	float:{ 
-			{ destroyer: [[1,1],[1,2],[1,3]] },
-			{ submarine: [[2,1]] },
-			{ cruice:    [[2,2],[3,2]] }
-	}
- or
- 	float:{ 
-			{ destroyer: [[1,1],[1,2],[1,3]]},
-			{ submarine: [[2,1]] },
-			{ cruice:    [[2,2],[3,2]] }
-	}
+  def verify(positions)
+  	raise BusyPlaceException.new("Bussy position!") if place_busy(positions)
+  end
 
+  def place_busy(positions)
+  	@positions.each_key{ |key| positions.include? key }
+  end
 =end
+  def save(boat_positions, boat)
+  	boat_positions.each{ |key| @positions[key] = boat }
+    puts @positions
+  end
+
+end

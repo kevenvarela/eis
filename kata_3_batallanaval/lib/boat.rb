@@ -8,7 +8,7 @@ class Boat
     @position = position
   end
 
-  def positions?
+  def positions
     return [position]            if type == "Submarine"
     return horizontally_position if orientation == "horizontally"
     vertically_position
