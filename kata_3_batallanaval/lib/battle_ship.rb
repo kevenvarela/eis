@@ -17,7 +17,7 @@ class BattleShip
   	Boat.new(type, orientation, position)
   end
 
-  def place(type, orientation, position)
-  	true
+  def place(boat)
+  	@board.place(boat)
   end
 end
