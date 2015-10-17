@@ -84,4 +84,11 @@ describe 'Board' do
       expect(board.ship_in?([1,1])).to be false
     end
   end
+
+  describe '#shoot_to' do
+    context 'an empty position' do
+      it { expect(board.shoot_to([2,2])).to be == 'water'}
+    end
+  end
+
 end

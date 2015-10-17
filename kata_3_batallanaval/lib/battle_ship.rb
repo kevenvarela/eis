@@ -24,4 +24,9 @@ class BattleShip
   def ship_in?(position)
     @board.ship_in?(position)
   end
+
+  def shoot_to(position)  
+    @board.shoot_to(position)
+  end
+
 end

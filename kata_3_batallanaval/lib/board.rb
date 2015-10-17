@@ -48,4 +48,8 @@ class Board
     false
   end
 
+  def shoot_to(position)  
+    'water'
+  end
+
 end

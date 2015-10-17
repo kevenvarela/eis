@@ -67,4 +67,10 @@ describe 'BattleShip' do
       expect(battle_ship.ship_in?([1,1])).to be submarine
     end
   end
+
+  describe '#shoot_to' do
+    context 'an empty position' do
+      it {expect(battle_ship.shoot_to([2,2])).to be == 'water'}
+    end
+  end
 end
