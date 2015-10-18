@@ -69,8 +69,19 @@ describe 'BattleShip' do
   end
 
   describe '#shoot_to' do
+    let(:cruise) { battle_ship.new_boat("Cruise", "horizontally", [1,1]) }     
+
     context 'an empty position' do
       it {expect(battle_ship.shoot_to([2,2])).to be == 'water'}
+    end
+
+    context 'an occuped position' do
+      it 'with a Cruise' do
+        battle_ship.place(cruise)
+        expect(battle_ship.shoot_to([1,1])).to be == true
+        expect(battle_ship.shoot_to([2,1])).to be == true
+        expect(battle_ship.shoot_to([3,1])).to be == 'water'
+      end
     end
   end
 end
