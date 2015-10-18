@@ -89,6 +89,15 @@ describe 'Board' do
     context 'an empty position' do
       it { expect(board.shoot_to([2,2])).to be == 'water'}
     end
+
+    context 'a position with a cruise' do
+      it 'return true' do
+        board.place(cruise)
+        expect(board.shoot_to([1,1])).to be == true
+        expect(board.shoot_to([1,2])).to be == true
+        expect(board.shoot_to([1,3])).to be == 'water'
+      end
+    end
   end
 
 end

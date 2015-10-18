@@ -49,6 +49,7 @@ class Board
   end
 
   def shoot_to(position)  
+    return @positions[position].hit if @positions.has_key?(position)
     'water'
   end
 
