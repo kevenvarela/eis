@@ -26,6 +26,7 @@ describe 'BussyPlaceException' do
       end
 
       expect(@exception.message).to eq 'The place is bussy!'
+      expect(@exception).to be_an_instance_of BussyPlaceException
     end
   end
 

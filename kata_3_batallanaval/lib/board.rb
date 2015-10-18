@@ -7,16 +7,9 @@ class Board
   	@y = y
   end
 
-  def width?
-    x
-  end
-
-  def high?
-    y
-  end
-
   def place(boat)
   	boat_positions = boat.positions
+
     verify(boat_positions)
     save(boat_positions, boat)
     true # seems like forcing the method to return true
@@ -48,9 +41,23 @@ class Board
     false
   end
 
-  def shoot_to(position)  
-    return @positions[position].hit if @positions.has_key?(position)
+  def shoot_to(position)
+    return shoot_and_check(position) if @positions.has_key?(position)  
     'water'
+  end
+
+  def shoot_and_check(position)
+    @positions[position].hit
+    check_sink(@positions[position])
+    true
+  end
+
+  def check_sink(boat)
+    delete_boat(boat) if boat.hits == 0
+  end
+
+  def delete_boat(boat)
+    boat.positions.each{ |key| @positions.delete(key)}
   end
 
 end

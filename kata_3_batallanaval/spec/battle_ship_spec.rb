@@ -18,20 +18,6 @@ describe 'BattleShip' do
     end
   end
 
-  describe '#board_width?' do
-
-    context 'must be eq to 10' do
-      it { expect(battle_ship.board_width?).to be 10 }
-    end
-  end
-
-  describe '#board_high?' do
-
-    context 'must be eq to 10' do
-      it { expect(battle_ship.board_high?).to be 10 }
-    end
-  end
-
   describe '#new_boat' do
 
     context 'initializes a Boat & returns it' do
@@ -81,6 +67,17 @@ describe 'BattleShip' do
         expect(battle_ship.shoot_to([1,1])).to be == true
         expect(battle_ship.shoot_to([2,1])).to be == true
         expect(battle_ship.shoot_to([3,1])).to be == 'water'
+      end
+    end
+
+    context 'more than 2 times to a Cruise' do
+      it 'will return watter ' do
+        battle_ship.place(cruise)
+        expect(battle_ship.shoot_to([1,1])).to be == true
+        expect(battle_ship.shoot_to([2,1])).to be == true
+        
+        expect(battle_ship.shoot_to([1,1])).to be == 'water'
+        expect(battle_ship.shoot_to([2,1])).to be == 'water'
       end
     end
   end

@@ -25,6 +25,7 @@ describe 'OutOfBoardException' do
       end
 
       expect(@exception.message).to eq 'Out of board!'
+      expect(@exception).to be_an_instance_of OutOfBoardException
     end
   end
 

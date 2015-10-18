@@ -42,6 +42,7 @@ end
 
 Then(/^the place is bussy$/) do
   expect(@exception.message).to eq 'The place is bussy!'
+  expect(@exception).to be_an_instance_of BussyPlaceException
 end
 
 
@@ -62,4 +63,5 @@ end
 
 Then(/^step over the board$/) do
   expect(@exception.message).to eq 'Out of board!'
+  expect(@exception).to be_an_instance_of OutOfBoardException
 end

@@ -14,31 +14,7 @@ describe 'Board' do
   describe '::initialize' do
     
     context 'initializes a Board' do
-      it { expect(board.class).to be Board.itself }
-    end
-  end
-
-  describe '#width?' do
-
-    context 'must be eq to 10' do
-      it { expect(board.width?).to be 10 }
-    end
-    
-    context 'must be eq to 5' do
-      let(:board) { Board.new(5,5) }
-      it { expect(board.width?).to be 5 }
-    end
-  end
-
-  describe '#high?' do
-
-    context 'must be eq to 10' do
-      it { expect(board.width?).to be 10 }
-    end
-    
-    context 'must be eq to 5' do
-      let(:board) { Board.new(7,5) }
-      it { expect(board.width?).to be 7 }
+      it { expect(board).to be_an_instance_of Board }
     end
   end
 
@@ -86,6 +62,7 @@ describe 'Board' do
   end
 
   describe '#shoot_to' do
+
     context 'an empty position' do
       it { expect(board.shoot_to([2,2])).to be == 'water'}
     end
@@ -95,9 +72,18 @@ describe 'Board' do
         board.place(cruise)
         expect(board.shoot_to([1,1])).to be == true
         expect(board.shoot_to([1,2])).to be == true
-        expect(board.shoot_to([1,3])).to be == 'water'
+      end
+    end
+
+    context 'a Cruise more than 2 times' do
+      it 'will return watter' do
+        board.place(cruise)
+        expect(board.shoot_to([1,1])).to be == true
+        expect(board.shoot_to([1,2])).to be == true
+        
+        expect(board.shoot_to([1,2])).to be == 'water'
+        expect(board.shoot_to([1,2])).to be == 'water'
       end
     end
   end
-
 end
