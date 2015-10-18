@@ -1,5 +1,5 @@
 Feature: Shooting
-  As a user that is shooting to a ship
+  As a gamer that is shooting to a ship
   I want to sink a ship
 
   Background: 
@@ -10,10 +10,9 @@ Feature: Shooting
     When shoot to 2,2 position
     Then I touch water
 
-  @wip
   Scenario: shoot and touch a ship
-    Given 1,1 position with a Crusier
-    When shoot to 1,1 position
+    Given 1,1 position with a Crusier horizontally
+    When shoot to 1,1 position with a Crusier
     Then the ship is ok
 
   @wip
