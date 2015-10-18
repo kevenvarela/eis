@@ -30,5 +30,10 @@ describe 'Boat' do
     it { expect(cruise_h.positions).to eq [[6,3],[7,3]] }
   end
 
+  describe '#hit' do
+    context 'hitting a Cruise' do 
+      it { expect(cruise_h.hit) == true}
+    end
+  end
 end
 

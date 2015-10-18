@@ -1,11 +1,12 @@
 class Boat 
-  attr_reader :type, :orientation, :position, :types
+  attr_reader :type, :orientation, :position, :types, :hits
 
   def initialize(type, orientation, position)
   	@types = {"Destroyer": 3, "Cruise": 2, "Submarine": 1}
     @type = type
     @orientation = orientation
     @position = position
+    @hits = types[type.to_sym]
   end
 
   def positions
@@ -34,9 +35,15 @@ class Boat
     position[place] + types[type.to_sym] -1
   end
 
+  def hit
+    @hits -= 1 
+    true
+  end
+
   def equal?(boat)
   	@type == boat.type &&
   	@orientation == boat.orientation &&
   	@position == boat.position 
   end
 end
+
