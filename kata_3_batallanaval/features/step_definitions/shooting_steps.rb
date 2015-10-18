@@ -44,12 +44,14 @@ end
 
 When(/^shoot to (\d+),(\d+) position (\d+) times$/) do |arg1, arg2, arg3|
   @first_result  = @battle_ship.shoot_to(@position_to_shoot)  
-  @second_result = @battle_ship.shoot_to(@position_to_shoot)  
-  @third_result  = @battle_ship.shoot_to(@position_to_shoot)  
+  @second_result = @battle_ship.shoot_to([2,1])  
+  @third_result  = @battle_ship.shoot_to([3,1])
+  @fourth_result = @battle_ship.shoot_to(@position_to_shoot)  
 end
 
 Then(/^the ship is sink$/) do
   expect(@first_result).to eq true    
   expect(@second_result).to eq true    
   expect(@third_result).to eq true    
+  expect(@fourth_result).to eq 'water'    
 end
