@@ -15,8 +15,7 @@ Feature: Shooting
     When shoot to 1,1 position with a Crusier
     Then the ship is ok
 
-  @wip
   Scenario: shoot and sink a ship
-   Given 1,1 position with a ship
-   When shoot to 1,1 position
+   Given 1,1 position with a Destroyer
+   When shoot to 1,1 position 3 times
    Then the ship is sink

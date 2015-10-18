@@ -33,3 +33,23 @@ end
 Then(/^the ship is ok$/) do
   expect(@result).to eq true  
 end
+
+#    Scenario: shoot and sink a ship
+
+Given(/^(\d+),(\d+) position with a Destroyer$/) do |arg1, arg2|
+  @position_to_shoot = [1,1]
+  @destroyer = @battle_ship.new_boat('Destroyer', 'horizontally', @position_to_shoot)
+  @battle_ship.place(@destroyer)
+end
+
+When(/^shoot to (\d+),(\d+) position (\d+) times$/) do |arg1, arg2, arg3|
+  @first_result  = @battle_ship.shoot_to(@position_to_shoot)  
+  @second_result = @battle_ship.shoot_to(@position_to_shoot)  
+  @third_result  = @battle_ship.shoot_to(@position_to_shoot)  
+end
+
+Then(/^the ship is sink$/) do
+  expect(@first_result).to eq true    
+  expect(@second_result).to eq true    
+  expect(@third_result).to eq true    
+end
