@@ -19,12 +19,8 @@ class Boat
     vertically_position
   end
 
-  def position_by(coord)
-    res = []
-    for n in position[coord]..end_coord(coord) 
-      res <<  yield(n) 
-    end
-    return res
+  def position_by(coord, &block)
+    (position[coord]..end_coord(coord)).map &block
   end  
 
   def horizontally_position
