@@ -19,20 +19,16 @@ class Boat
     vertically_position
   end
 
+  def position_by(coord, &block)
+    (position[coord]..end_coord(coord)).map &block
+  end  
+
   def horizontally_position
-    res = []
-    for x in position[0]..end_coord(0) 
-      res << [x, position[1]]
-    end
-    return res
+    position_by(0) { |n| [n, position[1]] }
   end
 
   def vertically_position
-    res = []
-    for y in position[1]..end_coord(1)
-      res << [position[0], y]
-    end
-    return res
+    position_by(1) { |n| [position[0], n] }
   end
 
   def end_coord(place)
