@@ -7,6 +7,7 @@ describe 'Calculator' do
 
     context '#initialize' do
       it { expect(calculator).to be_an_instance_of Calculator }
+      it { expect(calculator.memory).to eq 0 }
     end
 
     context '#calculate(operator1, operator2, operation)' do
@@ -23,6 +24,23 @@ describe 'Calculator' do
       it 'when averaging' do
         res = calculator.calculate(6, 4, 'average')
         expect(res).to be 5
+      end
+    end
+
+    context '#increment_memory' do
+      it 'when no calculates did' do
+        expect(calculator.memory).to be 0
+      end
+
+      it 'when make a calculate' do
+        calculator.calculate(6, 4, 'average')
+        expect(calculator.memory).to eq 1
+
+        calculator.calculate(6, 4, '+')
+        expect(calculator.memory).to eq 2
+
+        calculator.calculate(6, 4, '-')
+        expect(calculator.memory).to eq 3
       end
     end
 end
