@@ -1,10 +1,12 @@
 class Calculator
+ 
+  def calculate(operator1, operator2, operation)
+	operator1.send(operation, operator2)
+  end
+end
 
-	def calculate(operator1, operator2, operation)
-		puts 'Operator 1:' + operator1.to_s
-		puts 'Operator 2:' + operator2.to_s
-		puts 'Operation:' + operation.to_s
-
-		operator1.send(operation.to_sym, operator2)
+class Fixnum
+	def average(op)
+		(self + op) / 2
 	end
 end
