@@ -21,17 +21,17 @@ module Ejemplo                      # TODO: Change all of this.
       render 'calculator'
     end
 
+    # Button Refresh => GET : /
+    get 'refresh' do
+      @result = ' '
+      @memory = CALC.refresh
+      render 'calculator'
+    end
+
     # Button Submit  => POST : /calculator
     post 'calculator' do
       @result = CALC.calculate(get_params(session))
       @memory = CALC.memory
-      render 'calculator'
-    end
-
-    # Button Refresh => POST : /
-    post 'refresh' do
-      @result = ' '
-      @memory = CALC.refresh
       render 'calculator'
     end
   end

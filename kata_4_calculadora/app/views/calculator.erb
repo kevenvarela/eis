@@ -16,14 +16,15 @@
       
       <input id="operator_2" type="number" name="operator_2"> <br>
       <br>
-      <input type="submit" value="Submit" id="submit"/> <br>
+      <input id="submit" type="submit" value="Submit" /> <br>
     </form>
     <br>
     Result: <%= @result %> <br>
     <br>
     Total operations: <%= @memory %> <br>
     <br>
-    <!--<%= button_to "Refresh", :action => "refresh", :name => "refresh" %>-->
-    <input type="submit" value="Refresh" id="refresh"/>
+    <form method="GET" action="refresh"> 
+      <input id="refresh" type="submit" value="Refresh"/> <br>
+    </form>
   </body>
 </html>
