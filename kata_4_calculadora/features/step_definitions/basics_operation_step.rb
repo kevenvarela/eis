@@ -1,5 +1,5 @@
 Given(/^the calculator page$/) do
-  visit 'calculator' 
+  visit '' 
 end
 
 Given(/^an operator (\d+)$/) do |arg1|
