@@ -5,26 +5,26 @@
     <title>Calculator</title>
   </head>
   <body>
-    <form method="POST" action="calculator"> 
-      <%= csrf_token_field %>
-      <br>
+    <form method="POST" action=""> 
+      <%= csrf_token_field %><br>
       <input id="operator_1" type="number" name="operator_1"> <br>
       
       <input id="plus" type="radio" name="operation" value="+">Sum<br>
       <input id="subtract" type="radio" name="operation" value="-">Subtract<br>
       <input id="average" type="radio" name="operation" value="average">Average<br>
       
-      <input id="operator_2" type="number" name="operator_2"> <br>
-      <br>
+      <input id="operator_2" type="number" name="operator_2"> <br><br>
+
       <input id="submit" type="submit" value="Submit" /> <br>
-    </form>
-    <br>
-    Result: <%= @result %> <br>
-    <br>
-    Total operations: <%= @memory %> <br>
-    <br>
-    <form method="GET" action="refresh"> 
+    </form><br>
+
+    Result: <%= @result %> <br><br>
+    
+    Total operations: <%= @memory %> <br><br>
+
+    <form method="GET" action=""> 
       <input id="refresh" type="submit" value="Refresh"/> <br>
     </form>
+
   </body>
 </html>

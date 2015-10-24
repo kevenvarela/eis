@@ -1,12 +1,12 @@
 require_relative '../app/models/calculator.rb'
 
-module Ejemplo                      # TODO: Change all of this.
+module Ejemplo                      
   class App < Padrino::Application
     register Padrino::Rendering
     register Padrino::Helpers
 
     enable :sessions
-    CALC = Calculator.new
+    CALC = Calculator.new # TODO: In a future change this and use the session.
 
     def get_params(session)
       [session[:operator_1] = params[:operator_1].to_i,
@@ -22,14 +22,14 @@ module Ejemplo                      # TODO: Change all of this.
     end
 
     # Button Refresh => GET : /
-    get 'refresh' do
+    get '' do
       @result = ' '
       @memory = CALC.refresh
       render 'calculator'
     end
 
-    # Button Submit  => POST : /calculator
-    post 'calculator' do
+    # Button Submit  => POST : /
+    post '' do
       @result = CALC.calculate(get_params(session))
       @memory = CALC.memory
       render 'calculator'
