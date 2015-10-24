@@ -5,9 +5,13 @@ class Calculator
     @memory = 0
 	end
 
-  def calculate(operator1, operator2, operation)
+  def calculate(args)
   	increment_memory
-	  operator1.send(operation, operator2)
+	  args[0].send(args[2], args[1])
+  end
+
+  def refresh
+    @memory = 0
   end
 
   private
