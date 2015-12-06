@@ -2,7 +2,7 @@
 
 **Autor:** __Steve McConnell__
 
-**Año de publicacion:** __2004 __
+**Año de publicacion:** 2004
 
 
 Este libro habla sobre practicas de programacion, y es una fuente de estudio para informaticos desde hace mas de una decada.
